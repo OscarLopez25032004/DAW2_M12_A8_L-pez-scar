@@ -3,23 +3,37 @@ document.addEventListener('DOMContentLoaded', function () {
     const erroresDiv = document.getElementById('errores');
 
     form.addEventListener('submit', function (event) {
-        erroresDiv.innerHTML = '';  // Limpiamos los mensajes de error
+        event.preventDefault(); // Prevenir el envío del formulario hasta que se valide correctamente
+        erroresDiv.innerHTML = ''; // Limpiar los mensajes de error
         let errorEncontrado = false;
 
         // Obtener todos los inputs del formulario
         const inputs = form.querySelectorAll('input[type="number"]');
 
-        // Validar que los campos no estén vacíos
+        // Validación de que los campos no estén vacíos y que los valores sean positivos
         inputs.forEach(function (input) {
-            if (input.value.trim() === '') {
+            const valor = input.value.trim();
+
+            if (valor === '') {
                 errorEncontrado = true;
+                erroresDiv.innerHTML += `<p>El campo ${input.name} no puede estar vacío.</p>`;
+            } else if (parseFloat(valor) <= 0) {
+                errorEncontrado = true;
+                erroresDiv.innerHTML += `<p>El campo ${input.name} debe ser un número positivo.</p>`;
             }
         });
 
-        // Si se encuentra algún error, mostramos un único mensaje y evitamos el envío del formulario
         if (errorEncontrado) {
-            event.preventDefault(); // Detener el envío del formulario
-            erroresDiv.innerHTML = 'Todos los campos deben estar completos.'; // Mostrar un único mensaje de error
+            // Mostrar alerta con SweetAlert
+            Swal.fire({
+                icon: 'error',
+                title: 'Errores en el formulario',
+                text: 'Hay campos vacíos o valores no válidos. Por favor, corrígelos.',
+                confirmButtonText: 'Aceptar'
+            });
+        } else {
+            // Enviar el formulario si no hay errores
+            form.submit();
         }
     });
 });

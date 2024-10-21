@@ -54,3 +54,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="js/validacion.js"></script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduce los lados</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluir la librería de SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Introduce los valores de la figura seleccionada</h1>
+        <form id="figuraForm" action="resultado.php" method="POST">
+            <div id="errores" class="error"></div>
+            <?php if ($tipoFigura == 'triangulo'): ?>
+                <label for="lado1">Lado 1:</label>
+                <input type="number" name="lado1" id="lado1" required>
+                <label for="lado2">Lado 2:</label>
+                <input type="number" name="lado2" id="lado2" required>
+                <label for="lado3">Lado 3:</label>
+                <input type="number" name="lado3" id="lado3" required>
+            <?php elseif ($tipoFigura == 'rectangulo'): ?>
+                <label for="lado1">Lado 1:</label>
+                <input type="number" name="lado1" id="lado1" required>
+                <label for="lado2">Lado 2:</label>
+                <input type="number" name="lado2" id="lado2" required>
+            <?php elseif ($tipoFigura == 'cuadrado'): ?>
+                <label for="lado1">Lado:</label>
+                <input type="number" name="lado1" id="lado1" required>
+            <?php elseif ($tipoFigura == 'circulo'): ?>
+                <label for="radio">Radio:</label>
+                <input type="number" name="lado1" id="lado1" required>
+            <?php endif; ?>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+
+    <script src="validaciones.js"></script>
+</body>
+</html>
