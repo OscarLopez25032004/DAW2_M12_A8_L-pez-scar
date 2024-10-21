@@ -1,0 +1,66 @@
+/* Estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor centrado */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Estilos de encabezado */
+h1 {
+    color: #a7783a;
+    font-size: 30px;
+}
+
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #a7783a;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #785528;
+}
+
+/* Estilos de mensajes de error */
+.error {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+}

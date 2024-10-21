@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduce los lados</title>
+    <link rel="stylesheet" href="styles/styles.css">
     <style>
         .error {
             color: red;
@@ -27,11 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div id="errores" class="error"></div>
         <?php if ($tipoFigura == 'triangulo'): ?>
             <label for="lado1">Lado 1:</label>
-            <input type="number" name="lado1" id="lado1" required>
+            <input type="number" name="lado1" id="lado1" required><br><br>
             <label for="lado2">Lado 2:</label>
-            <input type="number" name="lado2" id="lado2" required>
+            <input type="number" name="lado2" id="lado2" required><br><br>
             <label for="lado3">Lado 3:</label>
-            <input type="number" name="lado3" id="lado3" required>
+            <input type="number" name="lado3" id="lado3" required><br><br>
         <?php elseif ($tipoFigura == 'rectangulo'): ?>
             <label for="lado1">Lado 1:</label>
             <input type="number" name="lado1" id="lado1" required>

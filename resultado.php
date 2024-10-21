@@ -37,12 +37,17 @@ $perimetro = $figura->calcularPerimetro();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <h1>Resultados</h1>
-    <p>Figura: <?php echo ucfirst($tipoFigura); ?></p>
-    <p>Lado(s) introducidos: <?php echo $figura->__toString(); ?></p>
-    <p>Área: <?php echo $area; ?></p>
-    <p>Perímetro: <?php echo $perimetro; ?></p>
+    <p>Figura: <strong><?php echo ucfirst($tipoFigura); ?></strong></p><br>
+    <p>Lado(s) introducidos: <strong><?php echo $figura->__toString(); ?></strong></p><br>
+    <p>Área: <strong><?php echo $area; ?></strong></p><br>
+    <p>Perímetro: <strong><?php echo $perimetro; ?></strong></p><br>
+    <!-- Botón para volver al index.php -->
+    <form action="index.php" method="GET">
+            <button type="submit">Volver al Inicio</button>
+        </form>
 </body>
 </html>
