@@ -22,6 +22,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     width: 400px;
     text-align: center;
+    margin: auto; /* Centrar el contenedor en la página */
 }
 
 /* Estilos de encabezado */
@@ -30,19 +31,23 @@ h1 {
     font-size: 30px;
 }
 
-
+/* Estilos de etiquetas */
 label {
     font-weight: bold;
     color: #333;
 }
 
+/* Estilos de los inputs */
 input[type="number"] {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    width: 90%; /* Ancho ajustado para que no se vea tan estrecho */
+    margin: 10px 0; /* Espacio entre los inputs */
 }
 
+/* Estilos de botones */
 button {
     background-color: #a7783a;
     color: white;
@@ -52,6 +57,8 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    width: 100%; /* Botones a todo lo ancho del contenedor */
+    margin: 10px 0; /* Espacio entre los botones */
 }
 
 button:hover {
@@ -63,4 +70,20 @@ button:hover {
     color: red;
     margin-bottom: 10px;
     font-size: 14px;
+}
+
+/* Estilo para los párrafos en el resultado */
+.resultado {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555; /* Color un poco más suave para los resultados */
+}
+
+/* Ajustes adicionales para el botón de cerrar sesión */
+button.cerrar-sesion {
+    background-color: #d9534f; /* Color diferente para diferenciar la acción */
+}
+
+button.cerrar-sesion:hover {
+    background-color: #c9302c; /* Color más oscuro al pasar el ratón */
 }
