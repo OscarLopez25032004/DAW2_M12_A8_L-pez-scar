@@ -9,11 +9,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cálculo de Figuras Geométricas</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="jsvalidacion.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Agrega SweetAlert -->
 </head>
 <body>
     <div class="container">
         <h1>Cálculo de Figuras Geométricas</h1>
+        <div id="errores"></div> <!-- Div para mostrar errores -->
         <form action="resultado.php" method="POST" id="figuraForm">
             <label for="tipoFigura">Selecciona una figura:</label>
             <select name="tipoFigura" id="tipoFigura" onchange="actualizarCampos()" required>
@@ -71,33 +72,41 @@ session_start();
             if (tipoFigura === 'triangulo') {
                 html = `
                     <label for="lado1">Lado 1:</label>
-                    <input type="number" name="lado1" id="lado1" required>
+                    <input type="number" name="lado1" id="lado1" onblur="validaCampo('lado1','errorlado1')" required><br>
+                    <span id="errorlado1" class="error"></span><br>
                     <label for="lado2">Lado 2:</label>
-                    <input type="number" name="lado2" id="lado2" required>
+                    <input type="number" name="lado2" id="lado2" onblur="validaCampo('lado2','errorlado2')" required><br>
+                    <span id="errorlado2" class="error"></span><br>
                     <label for="lado3">Lado 3:</label>
-                    <input type="number" name="lado3" id="lado3" required>
+                    <input type="number" name="lado3" id="lado3" onblur="validaCampo('lado3','errorlado3')" required><br>
+                    <span id="errorlado3" class="error"></span><br>
                 `;
             } else if (tipoFigura === 'rectangulo') {
                 html = `
                     <label for="lado1">Lado 1:</label>
-                    <input type="number" name="lado1" id="lado1" required>
+                    <input type="number" name="lado1" id="lado1" onblur="validaCampo('lado1','errorlado1')" required><br>
+                    <span id="errorlado1" class="error"></span><br>
                     <label for="lado2">Lado 2:</label>
-                    <input type="number" name="lado2" id="lado2" required>
+                    <input type="number" name="lado2" id="lado2"  onblur="validaCampo('lado2','errorlado2')" required><br>
+                    <span id="errorlado2" class="error"></span><br>
                 `;
             } else if (tipoFigura === 'cuadrado') {
                 html = `
                     <label for="lado1">Lado:</label>
-                    <input type="number" name="lado1" id="lado1" required>
+                    <input type="number" name="lado1" id="lado1" onblur="validaCampo('lado1','errorlado1')" required><br>
+                    <span id="errorlado1" class="error"></span><br>
                 `;
             } else if (tipoFigura === 'circulo') {
                 html = `
                     <label for="lado1">Radio:</label>
-                    <input type="number" name="lado1" id="lado1" required>
+                    <input type="number" name="lado1" id="lado1" onblur="validaCampo('lado1','errorlado1')" required><br>
+                    <span id="errorlado1" class="error"></span><br>
                 `;
             }
 
             camposAdicionales.innerHTML = html;
         }
     </script>
+    <script src="js/validacion.js"></script>
 </body>
 </html>

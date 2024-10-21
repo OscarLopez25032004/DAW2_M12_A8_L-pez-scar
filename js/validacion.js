@@ -1,39 +1,21 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('figuraForm');
-    const erroresDiv = document.getElementById('errores');
+//Obtener el id de cada input y el error para que no choquen
+function validaCampo(id, idE) {
+    const campo = document.getElementById(id).value;
+    const errorCampo = document.getElementById(idE);
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevenir el envío del formulario hasta que se valide correctamente
-        erroresDiv.innerHTML = ''; // Limpiar los mensajes de error
-        let errorEncontrado = false;
+    //Que no este vacio
+    if (campo === '') {
+        errorCampo.textContent = 'No puede estar vacío.';
+        return false;
+    }
 
-        // Obtener todos los inputs del formulario
-        const inputs = form.querySelectorAll('input[type="number"]');
+    //Que no tenga numeros
+    if (!/^[0-9]+$/.test(campo)) {
+        errorCampo.textContent = 'No puede tener letras.';
+        return false;
+    }
 
-        // Validación de que los campos no estén vacíos y que los valores sean positivos
-        inputs.forEach(function (input) {
-            const valor = input.value.trim();
-
-            if (valor === '') {
-                errorEncontrado = true;
-                erroresDiv.innerHTML += `<p>El campo ${input.name} no puede estar vacío.</p>`;
-            } else if (parseFloat(valor) <= 0) {
-                errorEncontrado = true;
-                erroresDiv.innerHTML += `<p>El campo ${input.name} debe ser un número positivo.</p>`;
-            }
-        });
-
-        if (errorEncontrado) {
-            // Mostrar alerta con SweetAlert
-            Swal.fire({
-                icon: 'error',
-                title: 'Errores en el formulario',
-                text: 'Hay campos vacíos o valores no válidos. Por favor, corrígelos.',
-                confirmButtonText: 'Aceptar'
-            });
-        } else {
-            // Enviar el formulario si no hay errores
-            form.submit();
-        }
-    });
-});
+    //Retea el error a vacio para que no siga apareciendo el error a pesar de que ya este bien.
+    errorCampo.textContent = "";
+    return true;
+}
