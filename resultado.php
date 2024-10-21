@@ -48,6 +48,6 @@ $perimetro = $figura->calcularPerimetro();
     <!-- Botón para volver al index.php -->
     <form action="index.php" method="GET">
             <button type="submit">Volver al Inicio</button>
-        </form>
+    </form>
 </body>
 </html>

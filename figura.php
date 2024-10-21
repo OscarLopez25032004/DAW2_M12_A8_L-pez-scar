@@ -46,8 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="number" name="lado1" id="lado1" required>
         <?php endif; ?>
         <button type="submit">Calcular</button>
+    </form><br>
+    <!-- Botón para volver al index.php -->
+    <form action="index.php" method="GET">
+            <button type="submit">Volver al Inicio</button>
     </form>
-
     <script src="js/validacion.js"></script>
 </body>
 </html>
