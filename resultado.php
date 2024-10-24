@@ -54,27 +54,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres a UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva en dispositivos móviles -->
+    <title>Resultado</title> <!-- Título de la página que se muestra en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles/styles.css"> <!-- Enlace a la hoja de estilos CSS para el diseño -->
 </head>
 <body>
-    <div class="container">
-        <h1>Resultados del Cálculo</h1>
+    <div class="container"> <!-- Contenedor principal para la estructura de la página -->
+        <h1>Resultados del Cálculo</h1> <!-- Título principal de la sección de resultados -->
+        
+        <!-- Muestra el tipo de figura utilizando htmlspecialchars para prevenir ataques XSS -->
         <p><strong>Tipo de figura:</strong> <?php echo htmlspecialchars($tipoFigura); ?></p>
+
+        <!-- Muestra el primer lado de la figura -->
         <p><strong>Lado 1:</strong> <?php echo htmlspecialchars($lado1); ?></p>
+        
+        <!-- Verifica si la figura es un triángulo o un rectángulo antes de mostrar el segundo lado -->
         <?php if ($tipoFigura === 'triangulo' || $tipoFigura === 'rectangulo'): ?>
             <p><strong>Lado 2:</strong> <?php echo htmlspecialchars($lado2); ?></p>
         <?php endif; ?>
+        
+        <!-- Verifica si la figura es un triángulo antes de mostrar el tercer lado -->
         <?php if ($tipoFigura === 'triangulo'): ?>
             <p><strong>Lado 3:</strong> <?php echo htmlspecialchars($lado3); ?></p>
         <?php endif; ?>
+
+        <!-- Muestra el área calculada, formateada a dos decimales -->
         <p><strong>Área:</strong> <?php echo number_format($area, 2); ?></p>
+        
+        <!-- Muestra el perímetro calculado, formateado a dos decimales -->
         <p><strong>Perímetro:</strong> <?php echo number_format($perimetro, 2); ?></p>
         
+        <!-- Botón para volver al formulario de entrada -->
         <button onclick="window.location.href='figura.php'">Volver al formulario</button>
+        <!-- Botón para cerrar la sesión del usuario -->
         <button onclick="window.location.href='cerrar_sesion.php'">Cerrar sesión</button>
     </div>
 </body>
 </html>
+
